@@ -10,16 +10,12 @@
 
 
 {% macro divider() %}
-<!-- Divider -->
-<hr class="sidebar-divider my-0">
+<hr class="sidebar-divider">
 {% endmacro %}
 
 
-{% macro heading() %}
-<!-- Heading -->
-<div class="sidebar-heading">
-    Interface
-</div>
+{% macro heading(title) %}
+<div class="sidebar-heading">{{ title }}</div>
 {% endmacro %}
 
 
