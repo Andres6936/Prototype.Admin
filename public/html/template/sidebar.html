@@ -26,7 +26,9 @@
 {% endmacro %}
 
 
-<!-- The parameter: 'title' is of type string, and allow set the title for for heading. -->
+<!-- The parameter: 'title' is of type string, and allow set the title for for heading.
+
+     Precondition: The parameter 'title' is !== of null or empty.-->
 {% macro heading(title) %}
 <div class="sidebar-heading">{{ title }}</div>
 {% endmacro %}
