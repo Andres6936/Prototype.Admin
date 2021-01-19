@@ -9,13 +9,8 @@
 {% endmacro %}
 
 
-{% macro divider() %}
-<hr class="sidebar-divider">
-{% endmacro %}
-
-
-{% macro divider_my0() %}
-<hr class="sidebar-divider my-0">
+{% macro divider(extraClass='') %}
+<hr class="sidebar-divider {{ extraClass }}">
 {% endmacro %}
 
 
