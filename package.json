@@ -38,7 +38,8 @@
         "express": "^4.17.1",
         "jquery": "3.5.1",
         "jquery.easing": "^1.4.1",
-        "mongodb": "^3.6.3"
+        "mongodb": "^3.6.3",
+        "nunjucks": "^3.2.2"
     },
     "devDependencies": {
         "del": "6.0.0",
