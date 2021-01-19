@@ -16,7 +16,11 @@
 </a>
 {% endmacro %}
 
+<!-- For the general, the divider macro only apply the class 'sidebar-divider', however,
+     there are places where it is necessary to added one or more classes to the tag.
 
+     The parameter: 'extraClass' is of type string, and allow concat and apply more classes
+     to tag.  -->
 {% macro divider(extraClass='') %}
 <hr class="sidebar-divider {{ extraClass }}">
 {% endmacro %}
