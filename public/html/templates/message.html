@@ -8,12 +8,12 @@
 
 <!-- Parameter: messages is of type array of objects.
      The object must be have the follow properties:
-     - name: The name of user.
-     - time: The time has passed since the message was written.
-     - highlight: If the message must be highlight, the value must be 'font-weight-bold' (this a class of bootstrap 4).
-     - isActive: Can be 'bg-success' if the user is active, or 'bg-warning' if the user is occupied, empty value if the user is offline.
-     - text: The message the user want to communicate.
-     - pathImage: Path to profile image of user. -->
+     - name {string}: The name of user.
+     - time {string}: The time has passed since the message was written.
+     - highlight {boolean}: Determine if the message must be highlight (Indicates if it is a new or unread message.).
+     - isActive {string}: Can be 'bg-success' if the user is active, or 'bg-warning' if the user is occupied, empty value if the user is offline.
+     - text {string}: The message the user want to communicate.
+     - pathImage {string}: Path to profile image of user. -->
 {% macro showMessages(messages) %}
 <!-- Nav Item - Messages -->
 <li class="nav-item dropdown no-arrow mx-1">
@@ -38,7 +38,7 @@
                 <div class="status-indicator {{ message.isActive }}"></div>
             </div>
 
-            <div class="{{ message.highlight }}">
+            <div class="{{ 'font-weight-bold' if message.highlight else '' }}">
                 <div class="text-truncate">{{ message.text }}
                 </div>
                 <div class="small text-gray-500">{{ message.name }} · {{ message.time }}</div>
