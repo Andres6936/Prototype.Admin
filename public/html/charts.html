@@ -142,21 +142,9 @@
 
                 <div class="topbar-divider d-none d-sm-block"></div>
 
-                <!-- Nav Item - User Information -->
-                <li class="nav-item dropdown no-arrow">
-                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
-                       data-toggle="dropdown"
-                       href="#" id="userDropdown" role="button">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                        <img class="img-profile rounded-circle"
-                             src="../img/undraw_profile.svg">
-                    </a>
+                {% import 'templates/user-information.html' as userInformation %}
 
-                    {% import 'templates/user-information.html' as userInformation %}
-
-                    {{ userInformation.dropdown() }}
-
-                </li>
+                {{ userInformation.information() }}
 
             </ul>
 
