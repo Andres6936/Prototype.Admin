@@ -6,15 +6,36 @@
 <!-- The macros allows you to define reusable chunks of content.
      It is similar to a function in a programming language. -->
 
-<!-- Parameter: messages is of type array of objects.
+<!-- Parameter: messages is of type array of objects. (For convention only pass the first 4 (four) messages.)
      The object must be have the follow properties:
      - name {string}: The name of user.
      - time {string}: The time has passed since the message was written.
      - highlight {boolean}: Determine if the message must be highlight (Indicates if it is a new or unread message.).
      - isActive {string}: Can be 'bg-success' if the user is active, or 'bg-warning' if the user is occupied, empty value if the user is offline.
      - text {string}: The message the user want to communicate.
-     - pathImage {string}: Path to profile image of user. -->
-{% macro showMessages(messages) %}
+     - pathImage {string}: Path to profile image of user.
+
+     Parameter: totalMessages is of type number. The parameter determine the total of messages that exist in the array,
+     maybe sound redundant, but for convention is important only show the first 4 (four) messages for not saturate the
+     interface and the user, Nunjucks does not allow editing variables within a macro, for it is important that the user
+     edit the array before passing it as a parameter to the macro.
+
+     Examples:
+
+     If we have the 'messages' variable with a length of 7 (messages). The recommended way to use the macro is:
+
+     >>> showMessages(messages.slice(0, 4), messages.length);
+
+     It is important to note that: messages.slice(0, 4) only send the first (4) four object of array. (This is a convention).
+     And that messages.length sends the actual number of messages in the array.
+
+     It is also important to note that if the array (messages) has less than 4 elements it not necessary to specify
+     the total number of messages.
+
+     >>> showMessages(messages)
+
+     -->
+{% macro showMessages(messages, totalMessages=0) %}
 <!-- Nav Item - Messages -->
 <li class="nav-item dropdown no-arrow mx-1">
     <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
