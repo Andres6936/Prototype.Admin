@@ -6,6 +6,14 @@
 <!-- The macros allows you to define reusable chunks of content.
      It is similar to a function in a programming language. -->
 
+<!-- Parameter: messages is of type array of objects.
+     The object must be have the follow properties:
+     - name: The name of user.
+     - time: The time has passed since the message was written.
+     - highlight: If the message must be highlight, the value must be 'font-weight-bold' (a class of bootstrap 4).
+     - isActive: Can be 'bg-success' if the user is active, or 'bg-warning' if the user is occupied, empty value if the user is offline.
+     - text: The message the user want to communicate.
+     - pathImage: Path to profile image of user. -->
 {% macro showMessages(messages) %}
 <!-- Nav Item - Messages -->
 <li class="nav-item dropdown no-arrow mx-1">
