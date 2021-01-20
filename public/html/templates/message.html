@@ -30,15 +30,11 @@
                 <div class="status-indicator {{ message.isActive }}"></div>
             </div>
 
-            {% if message.highlight %}
-            <div class="font-weight-bold">
-                {% else %}
-                <div>
-                    {% endif %}
-                    <div class="text-truncate">{{ message.text }}
-                    </div>
-                    <div class="small text-gray-500">{{ message.name }} · {{ message.time }}</div>
+            <div class="{{ message.highlight }}">
+                <div class="text-truncate">{{ message.text }}
                 </div>
+                <div class="small text-gray-500">{{ message.name }} · {{ message.time }}</div>
+            </div>
         </a>
         {% endfor %}
 
