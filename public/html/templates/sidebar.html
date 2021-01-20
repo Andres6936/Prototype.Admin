@@ -44,10 +44,15 @@
 </li>
 {% endmacro %}
 
+<!-- For the general, the 'charts' macro only apply the class 'nav-item', however,
+     there are places where it is necessary to mark the tag like active, added the
+     'active' class.
 
-{% macro charts() %}
+     The parameter: 'extraClass' is of type string, and allow concat and apply more classes
+     to tag. The use recommend for this parameter is added 'active' string as parameter.  -->
+{% macro charts(extraClass='') %}
 <!-- Nav Item - Charts -->
-<li class="nav-item">
+<li class="nav-item {{ extraClass }}">
     <a class="nav-link" href="charts.html">
         <i class="fas fa-fw fa-chart-area"></i>
         <span>Charts</span></a>
