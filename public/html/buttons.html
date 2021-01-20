@@ -1,4 +1,4 @@
-{% extends  'template/layout.html' %}
+{% extends 'templates/layout.html' %}
 
 {% block  content %}
 
@@ -176,11 +176,11 @@
                     </div>
                 </li>
 
-                {% import 'template/alerts.html' as alerts %}
+                {% import 'templates/alerts.html' as alerts %}
 
                 {{ alerts.alerts() }}
 
-                {% import 'template/message.html' as messages %}
+                {% import 'templates/message.html' as messages %}
 
                 {{ messages.messages() }}
 
@@ -195,7 +195,7 @@
                              src="../img/undraw_profile.svg">
                     </a>
 
-                    {% import 'template/user-information.html' as userInformation %}
+                    {% import 'templates/user-information.html' as userInformation %}
 
                     {{ userInformation.dropdown() }}
 
