@@ -1,6 +1,5 @@
 "use strict";
 
-const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
 const express = require('express');
 const path = require('path');
@@ -39,6 +38,17 @@ nunjucks.configure('public/html', {
     express: app,
 });
 
+// Parse URL-encoded bodies (as sent by HTML forms)
+app.use(express.urlencoded());
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
+app.use(express.static('public/'));
+app.set('view engine', 'html');
+
+app.listen(port, () => {
+    console.log(`Executing app at http://localhost:${port}`);
+})
+
 app.get('/', (req, res) => {
     res.render(path.join(__dirname + '/public/html/index.html'));
 })
@@ -47,17 +57,7 @@ app.get('/html/:file', (req, res) => {
     res.render(path.join(__dirname + '/public/html/' + req.params.file));
 })
 
-app.post('/html/register.html', (req, res) => {
-    console.log(req.body);
-})
-
-// support json encoded bodies
-app.use(bodyParser.json())
-// support encoded bodies
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static('public/'));
-app.set('view engine', 'html');
-
-app.listen(port, () => {
-    console.log(`Executing app at http://localhost:${port}`);
+app.post('/user/register', (req, res) => {
+    console.log(req.body.user.firstName);
+    res.send('Send File ' + req.body.user.lastName);
 })
