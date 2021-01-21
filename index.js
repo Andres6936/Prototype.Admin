@@ -3,32 +3,10 @@
 const nunjucks = require('nunjucks');
 const express = require('express');
 const path = require('path');
-const {MongoClient} = require('mongodb')
-//
-// // Connection URI
-// const uri = "mongodb://localhost:27017";
-//
-// const client = new MongoClient(uri);
-//
-// async function run() {
-//     try {
-//         // Connect the client to server
-//         await client.connect();
-//
-//         // Establish and verify connection
-//         const databse = client.db("admin");
-//         const collection = databse.collection("users");
-//
-//         console.log("Connected successfully to server");
-//
-//         return collection;
-//     } finally {
-//         // Ensures that the client will close when you finish/error
-//         await client.close();
-//     }
-// }
-//
-// run().catch(console.dir);
+const MongoClient = require('mongodb').MongoClient
+
+// Connection URI
+const uri = "mongodb://localhost/red";
 
 const app = express();
 const port = 3000;
@@ -58,6 +36,21 @@ app.get('/html/:file', (req, res) => {
 })
 
 app.post('/user/register', (req, res) => {
-    console.log(req.body.user.firstName);
-    res.send('Send File ' + req.body.user.lastName);
+
+    const userData = req.body.user;
+
+    const userInformation = {
+        name: {
+            first: userData.firstName,
+            last: userData.lastName,
+        },
+        email: userData.email,
+        password: userData.password,
+    }
+
+    MongoClient.connect(uri, (err, db) => {
+        db.collection('users').insertOne(userInformation);
+    });
+
+    res.render((path.join(__dirname + '/public/html/login.html')));
 })
