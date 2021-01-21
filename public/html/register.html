@@ -39,40 +39,48 @@
                             <form class="user" method="post" action="/user/register">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class="d-none" for="exampleFirstName"></label>
                                         <input name="user[firstName]" type="text" class="form-control form-control-user"
                                                id="exampleFirstName"
                                                placeholder="First Name">
                                     </div>
                                     <div class="col-sm-6">
+                                        <label class="d-none" for="exampleLastName"></label>
                                         <input name="user[lastName]" type="text" class="form-control form-control-user"
                                                id="exampleLastName"
                                                placeholder="Last Name">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                    <label class="d-none" for="exampleInputEmail"></label>
+                                    <input name="user[email]" type="email" class="form-control form-control-user"
+                                           id="exampleInputEmail"
+                                           placeholder="Email Address">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                        <label class="d-none" for="exampleInputPassword"></label>
+                                        <input name="user[password]" type="password"
+                                               class="form-control form-control-user"
+                                               id="exampleInputPassword" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                        <label class="d-none" for="exampleRepeatPassword"></label>
+                                        <input name="user[passwordRepeat]" type="password"
+                                               class="form-control form-control-user"
+                                               id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Register Account
                                 </button>
                                 <hr>
-                                <a href="../index.html" class="btn btn-google btn-user btn-block">
+                                <button type="submit" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="../index.html" class="btn btn-facebook btn-user btn-block">
+                                </button>
+                                <button type="submit" class="btn btn-facebook btn-user btn-block">
                                     <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
+                                </button>
                             </form>
                             <hr>
                             <div class="text-center">
