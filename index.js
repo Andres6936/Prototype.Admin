@@ -6,7 +6,7 @@ const path = require('path');
 const MongoClient = require('mongodb').MongoClient
 
 // Connection URI
-const uri = "mongodb://localhost/red";
+const uri = "mongodb://localhost:27017/admin";
 
 const app = express();
 const port = 3000;
@@ -48,9 +48,12 @@ app.post('/user/register', (req, res) => {
         password: userData.password,
     }
 
-    MongoClient.connect(uri, (err, db) => {
-        db.collection('users').insertOne(userInformation);
-    });
+    console.log(userInformation);
+
+    MongoClient.connect(uri).then(client => {
+        const userCollection = client.db.collection('users');
+        userCollection.insertOne(userInformation).catch(exception => console.error(exception));
+    }).catch(exception => console.error(exception));
 
     res.render((path.join(__dirname + '/public/html/login.html')));
 })
